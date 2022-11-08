@@ -1,0 +1,13 @@
+email:
+  imap_server: "imap.server"
+  smtp_server: "smtp.server"
+  smtp_port: 555
+  login: "your@mail.com"
+  password: "123"
+
+pause_sec: 60 # Pause time before a new check of letters
+
+telegram:
+  notifications: True # False if not to notify
+  bot_token: "your bot token"
+  chat_id: "your chat id"

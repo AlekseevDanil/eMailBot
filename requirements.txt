@@ -1,0 +1,4 @@
+loguru==0.6.0 # for logging states
+pyyaml==6.0 # to read the configuration file
+beautifulsoup4==4.11.1 # for parsing html markup
+requests==2.28.1 # for api
