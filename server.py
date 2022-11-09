@@ -50,7 +50,7 @@ class MailParser:
     def decode(self, message) -> Optional[str]:
         # The function decodes base64 letters
         if message:
-            message = email.header.decode_header(message)[0][0].decode()
+            message = email.header.decode_header(message)[0][0].decode('latin-1').encode("utf-8")
 
         return message
 
@@ -58,7 +58,7 @@ class MailParser:
         if part["Content-Transfer-Encoding"] in (None, "7bit", "8bit", "binary"):
             return part.get_payload()
         if part["Content-Transfer-Encoding"] == "base64":
-            return base64.b64decode(part.get_payload()).decode()
+            return base64.b64decode(part.get_payload()).decode('utf-8', errors="ignore")
         else:  # all types: quoted-printable, base64, 7bit, 8bit, and binary
             return part.get_payload()
     
